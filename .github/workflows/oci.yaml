@@ -41,9 +41,13 @@ jobs:
         working-directory: tools/falcoctl
 
       - name: foo
-        run: ls -alh
+        run: ls -alh tools
       - name: which falcoctl
         run: which falcoctl || true
+      - name: cp
+        run: cp tools/falcoctl/falcoctl ~
+      - name: foo3
+        run: ls -alh ~
 
       - name: Checkout Rules Repo
         uses: actions/checkout@v3
@@ -55,7 +59,7 @@ jobs:
 
       - name: Upload OCI artifacts to GitHub packages
         run: |
-             tools/falcoctl/falcoctl registry push \
+             ~/falcoctl registry push \
              --config /dev/null \
              --type rulesfile \
              --version ${OCI_ARTIFACT_VERSION} \

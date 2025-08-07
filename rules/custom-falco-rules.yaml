@@ -1,2 +1,2 @@
-- list: falco_binaries
+- list: a_test_binary_name_list
   items: [falcoctl]

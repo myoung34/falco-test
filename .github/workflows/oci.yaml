@@ -40,13 +40,18 @@ jobs:
         run: make
         working-directory: tools/falcoctl
 
-      - name: Checkout Rules Repo
-        uses: actions/checkout@v3
-
       - name: foo
         run: ls -alh
       - name: which falcoctl
-        run: which falcoctl
+        run: which falcoctl || true
+
+      - name: Checkout Rules Repo
+        uses: actions/checkout@v3
+
+      - name: foo1
+        run: ls -alh
+      - name: another which falcoctl
+        run: which falcoctl || true
 
       - name: Upload OCI artifacts to GitHub packages
         run: |

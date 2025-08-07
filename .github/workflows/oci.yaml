@@ -42,8 +42,9 @@ jobs:
 
       - name: Checkout Rules Repo
         uses: actions/checkout@v3
-        with:
-          path: rules
+
+      - name: foo
+        run: ls -alh
 
       - name: Upload OCI artifacts to GitHub packages
         run: |

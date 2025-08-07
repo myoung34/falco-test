@@ -45,6 +45,8 @@ jobs:
 
       - name: foo
         run: ls -alh
+      - name: which falcoctl
+        run: which falcoctl
 
       - name: Upload OCI artifacts to GitHub packages
         run: |

@@ -97,11 +97,12 @@ jobs:
              ${OCI_REGISTRY}/${GITHUB_REPOSITORY}/${OCI_ARTIFACT_NAME}:${{ steps.bump.outputs.new_tag }} \
              rules/${RULESET_FILE}             
 
+             # push major. for now it has to be {major}.0.0 because of https://github.com/falcosecurity/falcoctl/issues/815
              /opt/falcoctl registry push \
              --config /dev/null \
              --type rulesfile \
              --version ${{ steps.bump.outputs.major_tag_version }} \
-             ${OCI_REGISTRY}/${GITHUB_REPOSITORY}/${OCI_ARTIFACT_NAME}:${{ steps.bump.outputs.major_tag_version }} \
+             ${OCI_REGISTRY}/${GITHUB_REPOSITORY}/${OCI_ARTIFACT_NAME}:${{ steps.bump.outputs.major_tag_version }}.0.0 \
              rules/${RULESET_FILE}
         env:
           FALCOCTL_REGISTRY_AUTH_BASIC: ${{ env.OCI_REGISTRY }},${{ github.repository_owner }},${{ secrets.GITHUB_TOKEN }}

@@ -1,2 +1,2 @@
-- list: a_test_binary_name_list
+- list: a_test_binary_name_list_changed
   items: [falcoctl]

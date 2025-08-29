@@ -13,7 +13,7 @@
 # this macro is a wrapper around excluded process names
 - macro: check_proc_name
   condition: >
-    not (output_fields.proc.pname in (excluded_processes))
+    not (proc.pname in (excluded_processes))
 
 - rule: Detect New Directory
   desc: detect new directory created
